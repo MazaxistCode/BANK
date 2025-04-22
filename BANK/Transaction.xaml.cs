@@ -30,14 +30,19 @@ namespace BANK
         {
             if (!(string.IsNullOrEmpty(NameBox.Text) && string.IsNullOrEmpty(MoneyBox.Text)) && Calendar.SelectedDate != null)
             {
-                DB.BANKEntities.GetContext().Financial_transactions.Add(new DB.Financial_transactions()
+                if(int.TryParse(MoneyBox.Text, out int result))
                 {
-                    Date = (DateTime)Calendar.SelectedDate,
-                    Name = NameBox.Text,
-                    Money = int.TryParse(MoneyBox.Text, out int result) ? result : 0
-                });
-                DB.BANKEntities.GetContext().SaveChanges();
-                DataTransaction.ItemsSource = DB.BANKEntities.GetContext().Financial_transactions.ToList();
+                    DB.BANKEntities.GetContext().Financial_transactions.Add(new DB.Financial_transactions()
+                    {
+                        Date = (DateTime)Calendar.SelectedDate,
+                        Name = NameBox.Text,
+                        Money = result
+                    });
+                    DB.BANKEntities.GetContext().SaveChanges();
+                    DataTransaction.ItemsSource = DB.BANKEntities.GetContext().Financial_transactions.ToList();
+                }
+                else
+                    MessageBox.Show("Введите числа в поле \"Деньги\"");
             }
             else
                 MessageBox.Show("Заполните все поля");
@@ -45,14 +50,20 @@ namespace BANK
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!(string.IsNullOrEmpty(NameBox.Text) && string.IsNullOrEmpty(MoneyBox.Text)) && Calendar.SelectedDate != null && DataTransaction.SelectedItem is DB.Financial_transactions)
+            if (!(string.IsNullOrEmpty(NameBox.Text) && string.IsNullOrEmpty(MoneyBox.Text))
+                && Calendar.SelectedDate != null && DataTransaction.SelectedItem is DB.Financial_transactions)
             {
-                var item = DataTransaction.SelectedItem as DB.Financial_transactions;
-                item.Date = (DateTime)Calendar.SelectedDate;
-                item.Name = NameBox.Text;
-                item.Money = int.TryParse(MoneyBox.Text, out int result) ? result : 0;
-                DB.BANKEntities.GetContext().SaveChanges();
-                DataTransaction.ItemsSource = DB.BANKEntities.GetContext().Financial_transactions.ToList();
+                if (int.TryParse(MoneyBox.Text, out int result))
+                {
+                    var item = DataTransaction.SelectedItem as DB.Financial_transactions;
+                    item.Date = (DateTime)Calendar.SelectedDate;
+                    item.Name = NameBox.Text;
+                    item.Money = result;
+                    DB.BANKEntities.GetContext().SaveChanges();
+                    DataTransaction.ItemsSource = DB.BANKEntities.GetContext().Financial_transactions.ToList();
+                }
+                else
+                    MessageBox.Show("Введите числа в поле \"Деньги\"");
             }
             else
                 MessageBox.Show("Заполните все поля и выберите транзакцию");
@@ -78,6 +89,7 @@ namespace BANK
                 MoneyBox.Text = item.Money.ToString();
                 NameBox.Text = item.Name;
                 Calendar.DisplayDate = item.Date;
+                Calendar.SelectedDate = item.Date;
             }
         }
     }
