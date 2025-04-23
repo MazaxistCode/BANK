@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BANK"
         mc:Ignorable="d"
-        Title="Транзакции" Height="450" Width="800">
+        Title="Транзакции" Height="450" Width="800" Background="#FF7AFF67" FontFamily="Comic Sans MS">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="523*"></ColumnDefinition>
@@ -13,7 +13,7 @@
             <ColumnDefinition Width="41.009"></ColumnDefinition>
             <ColumnDefinition Width="208.991"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DataTransaction" Margin="10,10,0,10" AutoGenerateColumns="False" SelectedCellsChanged="DataTransaction_SelectedCellsChanged" Grid.ColumnSpan="2">
+        <DataGrid x:Name="DataTransaction" Margin="10,10,0,10" AutoGenerateColumns="False" SelectedCellsChanged="DataTransaction_SelectedCellsChanged" Grid.ColumnSpan="2" Background="#FF1CE000">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=d}" Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Name}" Width="*"></DataGridTextColumn>
@@ -22,14 +22,14 @@
         </DataGrid>
         <StackPanel Grid.Column="2" Grid.ColumnSpan="2">
             <Label Content="Дата" Margin="0,10,0,0"></Label>
-            <Calendar x:Name="Calendar" Margin="2"></Calendar>
+            <Calendar x:Name="Calendar" Background="#FF1CE000"></Calendar>
             <Label Content="Описание"></Label>
-            <TextBox x:Name="NameBox" Margin="2"></TextBox>
+            <TextBox x:Name="NameBox" Margin="1" Background="#FF1CE000"></TextBox>
             <Label Content="Сумма денег"></Label>
-            <TextBox x:Name="MoneyBox" Margin="2"></TextBox>
-            <Button x:Name="AddButton" Content="Добавить транзакцию" Margin="2" Height="30" Click="AddButton_Click"></Button>
-            <Button x:Name="EditButton" Content="Редактировать транзакцию" Margin="2" Height="30" Click="EditButton_Click"></Button>
-            <Button x:Name="RemButton" Content="Удалить транзакцию" Margin="2" Height="30" Click="RemButton_Click"></Button>
+            <TextBox x:Name="MoneyBox" Margin="1" Background="#FF1CE000"></TextBox>
+            <Button x:Name="AddButton" Content="Добавить транзакцию" Margin="2" Height="30" Click="AddButton_Click" Background="#FF1CE000"></Button>
+            <Button x:Name="EditButton" Content="Редактировать транзакцию" Margin="2" Height="30" Click="EditButton_Click" Background="#FF1CE000"></Button>
+            <Button x:Name="RemButton" Content="Удалить транзакцию" Margin="2" Height="30" Click="RemButton_Click" Background="#FF1CE000"></Button>
         </StackPanel>
     </Grid>
 </Window>

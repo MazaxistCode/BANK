@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BANK"
         mc:Ignorable="d"
-        Title="Фин. отчёт" Height="450" Width="800">
+        Title="Фин. отчёт" Height="450" Width="800" Background="#FF7AFF67" FontFamily="Comic Sans MS">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataTransaction" Margin="10,0,10,10" AutoGenerateColumns="False" Grid.Row="1">
+        <DataGrid x:Name="DataTransaction" Margin="10,0,10,10" AutoGenerateColumns="False" Grid.Row="1" Background="#FF1CE000">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=d}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Name}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Деньги" Binding="{Binding Money}" Width="150"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox x:Name="WaneBox" Content="Траты" Margin="10" IsChecked="True" Checked="WaneBox_Checked" Unchecked="WaneBox_Unchecked" ></CheckBox>
-        <CheckBox x:Name="ProfitBox" Content="Прибыль" Margin="10,30,10,10" IsChecked="True" Checked="ProfitBox_Checked" Unchecked="ProfitBox_Unchecked"></CheckBox>
+        <CheckBox x:Name="WaneBox" Content="Траты" Margin="10" IsChecked="True" Checked="WaneBox_Checked" Unchecked="WaneBox_Unchecked" Background="#FF1CE000"></CheckBox>
+        <CheckBox x:Name="ProfitBox" Content="Прибыль" Margin="10,30,10,10" IsChecked="True" Checked="ProfitBox_Checked" Unchecked="ProfitBox_Unchecked" Background="#FF1CE000"></CheckBox>
     </Grid>
 </Window>

@@ -15,7 +15,7 @@ namespace BANK.DB
     
     public partial class BANKEntities : DbContext
     {
-        private static BANKEntities _context = new BANKEntities(); 
+        private static BANKEntities _context = new BANKEntities();
         public static BANKEntities GetContext()
         {
             if (_context == null)

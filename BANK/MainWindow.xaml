@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BANK"
         mc:Ignorable="d"
-        Title="Главное меню" Height="200" Width="250">
+        Title="Главное меню" Height="200" Width="250" Background="#FF7AFF67" FontFamily="Comic Sans MS">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -13,8 +13,8 @@
         </Grid.RowDefinitions>
         <Label Content="Главное меню." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0"></Label>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
-            <Button x:Name="Transaction" Content="Транзакции" Margin="5" Width="100" Height="40" Click="Transaction_Click"/>
-            <Button x:Name="Report" Content="Фин. отчёт" Margin="5" Width="100" Height="40" Click="Report_Click"/>
+            <Button x:Name="Transaction" Content="Транзакции" Margin="5" Width="100" Height="40" Click="Transaction_Click" Background="#FF1CE000"/>
+            <Button x:Name="Report" Content="Фин. отчёт" Margin="5" Width="100" Height="40" Click="Report_Click" Background="#FF1CE000"/>
         </StackPanel>
     </Grid>
 </Window>
